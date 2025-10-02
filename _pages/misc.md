@@ -4,7 +4,6 @@ title: "Miscellaneous"
 permalink: /misc/
 author_profile: true
 ---
-
 ## Personal Philosophy
 
 **Either read or walk, body and soul, at least one is on the way...** 
