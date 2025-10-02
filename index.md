@@ -22,12 +22,6 @@ My recent project focuses on leveraging [OpenTrace](https://github.com/AgentOpt/
 - **[2024/05]** Our paper "[Optimal Batched Linear Bandits](https://arxiv.org/abs/2406.04137)" gets accepted to **ICML 2024**. Joint work with Tianyuan Jin and Prof. Pan Xu.
 
 
-## Philosophy
-
-Always read and write.
-
-Either read or walk, body and soul, at least one is on the way...
-
 ## Contact Me
 
 If you are interested in discussing research or collaboration, feel free to reach out:
