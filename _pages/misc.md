@@ -27,4 +27,4 @@ In addition, I think I also like traveling, but I don't have too much experience
 - **Running**: Active member and event organizer in school's running club
 - **Marathon**: Completed challenging off-road half marathon with 700+ meter elevation gain
 - **Travel**: Aspiring to explore the world and leave footprints everywhere
-- **Reading & Writing**: Constantly documenting thoughts and experiences for personal growth
+- **Reading & Writing**: Constantly documenting thoughts and experiences for personal growth. I particularly enjoy writing diary entries to reflect on daily experiences and insights. Welcome to have a look at my [Douban](https://www.douban.com/people/191702958/?_i=9383801Hz3StRb). Have a chat with me if you also like reading, writing, or keeping a diary!
