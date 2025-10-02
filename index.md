@@ -24,7 +24,7 @@ My recent project focuses on leveraging [OpenTrace](https://github.com/AgentOpt/
 
 ## Contact Me
 
-If you are interested in discussing research or collaboration, feel free to reach out:
+If you are interested in discussing research or collaboration, or simply want to grab a coffee or chat, feel free to reach out. I always enjoy making new friends!
 
 - **Email**: [xuanfeir@gmail.com](mailto:xuanfeir@gmail.com) or [xuanfeiren@cs.wisc.edu](mailto:xuanfeiren@cs.wisc.edu)
 - **WeChat**: xuanfeiren
