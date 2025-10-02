@@ -9,6 +9,12 @@ I am Xuanfei Ren, a PhD student in Computer Science at the [University of Wiscon
 
 <!-- You are welcomed to see my notes [here](/notes/).  -->
 
+## Research Interests
+
+I believe that with dedicated research efforts, the five years of PhD study can be highly productive and meaningful. My current research interests span broadly across AI agents and reinforcement learning, encompassing both theoretical foundations and experimental work. If you share similar interests, feel free to reach out for a chat!
+
+My recent project focuses on leveraging [OpenTrace](https://github.com/AgentOpt/OpenTrace) to optimize AI agents. I'm designing various efficient search algorithms, aiming to achieve the best efficiency in agent optimization. This is also an open-source work - I hope everyone in the agent field will give it a try!
+
 ## Recent News
 
 - **[2024/08]** Started my PhD journey at University of Wisconsin-Madison, advised by Prof. Tengyang Xie.
@@ -21,15 +27,12 @@ I am Xuanfei Ren, a PhD student in Computer Science at the [University of Wiscon
 Always read and write.
 
 Either read or walk, body and soul, at least one is on the way...
-<!-- 
-## Quick Links
 
-- [Research](/research/) - My research interests and projects
-- [CV](/cv/) - Complete academic background
-- [Teaching](/teaching/) - Teaching assistant experience  
-- [Miscellaneous](/misc/) - Personal interests and activities -->
+## Contact Me
 
-<!-- ## Contact Information
+If you are interested in discussing research or collaboration, feel free to reach out:
 
-- **Email**: xuanfeir@gmail.com
-- **Location**: Madison, WI, USA -->
+- **Email**: [xuanfeir@gmail.com](mailto:xuanfeir@gmail.com) or [xuanfeiren@cs.wisc.edu](mailto:xuanfeiren@cs.wisc.edu)
+- **WeChat**: xuanfeiren
+
+
