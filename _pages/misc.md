@@ -15,13 +15,11 @@ I mastered a challenging off-road half marathon in Aug. 2023, surmounting a daun
 
 In addition, I think I also like traveling, but I don't have too much experience. I hope I can see all over the world in the future, so that there are my footprints everywhere.
 
-## My Motto
-
-My motto is "either read or write, body and soul, at least one is on the way". I often urge myself to read more and write more to record my current thoughts, and constantly grow in this process. This is also a bottom line of my life, no matter what kind of situation, can not forget to read and write.
-
 ## Personal Philosophy
 
-Either read or walk, body and soul, at least one is on the way...
+**Either read or write, body and soul, at least one is on the way...** I often urge myself to read more and write more to record my current thoughts, and constantly grow in this process. This is also a bottom line of my life, no matter what kind of situation, can not forget to read and write.
+
+
 
 ## Activities & Interests
 
