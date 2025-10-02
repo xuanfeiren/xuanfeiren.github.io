@@ -5,7 +5,7 @@ author_profile: true
 
 # Welcome to Xuanfei Ren's Homepage!
 
-This is Xuanfei Ren, a senior student from the [University of Science and Technology of China (USTC)](http://en.ustc.edu.cn/), majoring in probability and statistics. I will join the [CS department](https://www.cs.wisc.edu/) of [University of Wisconsin-Madison](https://www.wisc.edu/) as a PhD student in 2024 Fall.
+I am Xuanfei Ren, a PhD student in Computer Science at the [University of Wisconsin-Madison](https://www.wisc.edu/), advised by [Prof. Tengyang Xie](https://tengyangxie.github.io/). I completed my Bachelor of Science in Mathematics (specialization in Probability and Statistics) from the [University of Science and Technology of China (USTC)](http://en.ustc.edu.cn/) in 2024.
 
 ## Always Read and Write
 
@@ -13,8 +13,8 @@ You are welcomed to see my notes [here](/notes/).
 
 ## Recent News
 
-- **[2024/05]** Our paper on batched linear bandits gets accepted to ICML 2024. I am very grateful to my collaborators for their help.
-  - *Optimal Batched Linear Bandits.*
+- **[2024/05]** Our paper "[Optimal Batched Linear Bandits](https://arxiv.org/abs/2406.04137)" gets accepted to **ICML 2024**. Joint work with Tianyuan Jin and Prof. Pan Xu.
+- **[2024/08]** Started my PhD journey at University of Wisconsin-Madison, advised by Prof. Tengyang Xie.
 
 ## Philosophy
 

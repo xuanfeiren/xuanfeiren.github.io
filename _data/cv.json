@@ -4,9 +4,9 @@
     "email": "xuanfeir@gmail.com",
     "phone": "",
     "website": "https://xuanfeiren.github.io",
-    "summary": "PhD student in Computer Science at University of Wisconsin-Madison. Research interests in bandit and reinforcement learning theory.",
+    "summary": "PhD student in Computer Science at University of Wisconsin-Madison, advised by Prof. Tengyang Xie. Research interests in reinforcement learning theory, AI agents, and LLM post-training.",
     "location": {
-      "address": "Room 310, 321 Dormitory Building, East Campus, USTC",
+      "address": "",
       "postalCode": "",
       "city": "Madison, WI",
       "countryCode": "US",
@@ -31,36 +31,20 @@
       "institution": "University of Wisconsin-Madison",
       "area": "Computer Science",
       "studyType": "Ph.D",
-      "startDate": "2024-09",
+      "startDate": "2024-08",
       "endDate": "Expected 2029",
-      "gpa": null,
-      "courses": []
+      "gpa": "4.0/4.0",
+      "courses": [],
+      "advisor": "Prof. Tengyang Xie"
     },
     {
       "institution": "University of Science and Technology of China (USTC)",
-      "area": "Probability and Statistics",
+      "area": "Mathematics, specialization in Probability and Statistics",
       "studyType": "B.S.",
-      "startDate": "2020-09",
+      "startDate": "2020-08",
       "endDate": "2024-06",
-      "gpa": "3.93/4.30 (91.14/100.00)",
-      "courses": [
-        "Mathematical Analysis (92)",
-        "Linear Algebra (93)",
-        "Differential Equations (100)",
-        "Advanced Probability* (100)",
-        "Stochastic Process (95)",
-        "Advanced Stochastic Process* (96)",
-        "Data Structures and Databases (93)",
-        "Real Analysis (98)",
-        "Complex Analysis (95)",
-        "Functional Analysis (93)",
-        "Modern Algebra (95)",
-        "Differential Geometry (93)",
-        "Mathematical Statistics (97)",
-        "Regression Analysis (95)",
-        "Multivariate statistical analysis (98)",
-        "Machine Learning (95)"
-      ]
+      "gpa": "3.93/4.3 (91.14/100)",
+      "courses": []
     }
   ],
   "skills": [
@@ -68,20 +52,30 @@
       "name": "Research Areas",
       "level": "",
       "keywords": [
-        "Artificial Intelligence",
+        "LLM Post-training",
+        "AI Agent",
         "Reinforcement Learning",
-        "Bandit Theory",
-        "Information Theory",
-        "Data Science",
-        "Optimization",
-        "High Dimensional Statistics"
+        "Artificial Intelligence"
+      ]
+    },
+    {
+      "name": "Programming",
+      "level": "",
+      "keywords": [
+        "C",
+        "Python",
+        "PyTorch",
+        "R",
+        "LaTeX",
+        "MATLAB",
+        "Mathematica"
       ]
     }
   ],
   "languages": [
     {
       "language": "English",
-      "fluency": "TOEFL iBT: 108 (Reading: 29, Listening: 29, Speaking: 22, Writing: 28)"
+      "fluency": "TOEFL: 108 (R: 29; L: 29; S: 22; W: 28); GRE: 320 (Q: 170; V: 150); GRE Subject (Mathematics): 880 (90%)"
     },
     {
       "language": "Chinese",
@@ -112,74 +106,77 @@
       "name": "Optimal Batched Linear Bandits",
       "publisher": "ICML 2024",
       "releaseDate": "2024-05",
-      "website": "",
-      "summary": "Accepted to ICML 2024. Collaboration with Prof. Pan Xu from Duke University."
+      "website": "https://arxiv.org/abs/2406.04137",
+      "summary": "Joint work with Tianyuan Jin and Pan Xu. Accepted to the 41st International Conference on Machine Learning.",
+      "authors": "Xuanfei Ren, Tianyuan Jin, Pan Xu"
     }
   ],
   "presentations": [],
-  "teaching": [
+  "teaching": [],
+  "research_experience": [
     {
-      "course": "Real Analysis",
-      "institution": "USTC, Department of Mathematical Sciences",
-      "date": "2023",
-      "role": "Teaching Assistant",
-      "description": "Excellent Teaching Assistant Award 2023"
+      "title": "Heuristic Exploration for Self-Improving Agentic Systems",
+      "institution": "University of Wisconsin-Madison",
+      "startDate": "2025-02",
+      "endDate": "Present",
+      "collaborators": "Dr. Ching-An Cheng (Microsoft Research) and Prof. Tengyang Xie",
+      "description": [
+        "Established a handcrafted baseline agent for the benchmark and defined reproducible evaluation metrics.",
+        "Integrated Microsoft's Trace framework to automate structured prompt tuning and decision-logic optimization.",
+        "Designed and implement novel meta search algorithms that exploit Trace to enhance the optimization process."
+      ]
     },
     {
-      "course": "Regression Analysis",
-      "institution": "USTC, Department of Mathematical Sciences", 
-      "date": "2022",
-      "role": "Teaching Assistant",
-      "description": ""
+      "title": "Offline Alignment for Language Models",
+      "institution": "University of Wisconsin-Madison",
+      "startDate": "2024-01",
+      "endDate": "Present",
+      "advisor": "Prof. Tengyang Xie",
+      "description": [
+        "Performed an in-depth literature review on offline reinforcement learning (RL) algorithms.",
+        "Applied offline RL algorithms to enhance alignment in large language models (LLMs)."
+      ]
+    },
+    {
+      "title": "Offline Reinforcement Learning and Policy Evaluation Theory",
+      "institution": "University of Wisconsin-Madison",
+      "startDate": "2024-09",
+      "endDate": "Present",
+      "advisor": "Prof. Tengyang Xie",
+      "description": [
+        "Developed theoretical insights into value-based reinforcement learning (RL) algorithms.",
+        "Theoretically analyzed estimation and approximation errors across various policy evaluation methods.",
+        "Designed and conducted experiments to validate theoretical predictions."
+      ]
+    },
+    {
+      "title": "Optimal Batched Linear Bandits",
+      "institution": "Duke University",
+      "startDate": "2023-08",
+      "endDate": "2024-01",
+      "advisor": "Prof. Pan Xu (Department of Computer Science, Duke University)",
+      "description": [
+        "Devised an algorithm striving for asymptotic and non-asymptotic optimality in the linear bandits setting, an achievement previously unattained.",
+        "Adapted the algorithm into a batched version with provable least batch complexity, extending applicability to common real-world problems.",
+        "Confirmed the algorithm's superiority over existing baseline methods through rigorous experimentation, showcasing its practical efficacy in linear bandits problems."
+      ]
     }
   ],
-  "awards": [
-    {
-      "title": "Outstanding Graduate 2024",
-      "date": "2024",
-      "awarder": "USTC",
-      "summary": ""
-    },
-    {
-      "title": "Excellent Teaching Assistant Award",
-      "date": "2023",
-      "awarder": "USTC",
-      "summary": ""
-    },
-    {
-      "title": "China Optics Valley Award (top 2%)",
-      "date": "2022-2023",
-      "awarder": "USTC",
-      "summary": ""
-    },
-    {
-      "title": "Huawei Scholarship (top 3%)",
-      "date": "2021-2022",
-      "awarder": "USTC",
-      "summary": ""
-    },
-    {
-      "title": "Excellent Student Scholarship",
-      "date": "2020-2021",
-      "awarder": "USTC",
-      "summary": ""
-    },
-    {
-      "title": "Excellent Freshman Scholarship",
-      "date": "2020",
-      "awarder": "USTC",
-      "summary": ""
-    }
-  ],
+  "awards": [],
   "tests": [
     {
-      "name": "GRE",
-      "score": "320 (Verbal 150, Quantitative 170)",
+      "name": "TOEFL",
+      "score": "108 (Reading: 29, Listening: 29, Speaking: 22, Writing: 28)",
       "date": ""
     },
     {
-      "name": "TOEFL iBT",
-      "score": "108 (Reading: 29, Listening: 29, Speaking: 22, Writing: 28)",
+      "name": "GRE",
+      "score": "320 (Quantitative: 170, Verbal: 150)",
+      "date": ""
+    },
+    {
+      "name": "GRE Subject (Mathematics)",
+      "score": "880 (90%)",
       "date": ""
     }
   ],
