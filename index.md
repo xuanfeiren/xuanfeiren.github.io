@@ -11,23 +11,25 @@ I am Xuanfei Ren, a PhD student in Computer Science at the [University of Wiscon
 
 ## Recent News
 
-- **[2024/05]** Our paper "[Optimal Batched Linear Bandits](https://arxiv.org/abs/2406.04137)" gets accepted to **ICML 2024**. Joint work with Tianyuan Jin and Prof. Pan Xu.
 - **[2024/08]** Started my PhD journey at University of Wisconsin-Madison, advised by Prof. Tengyang Xie.
+
+- **[2024/05]** Our paper "[Optimal Batched Linear Bandits](https://arxiv.org/abs/2406.04137)" gets accepted to **ICML 2024**. Joint work with Tianyuan Jin and Prof. Pan Xu.
+
 
 ## Philosophy
 
 Always read and write.
 
 Either read or walk, body and soul, at least one is on the way...
-
+<!-- 
 ## Quick Links
 
 - [Research](/research/) - My research interests and projects
 - [CV](/cv/) - Complete academic background
 - [Teaching](/teaching/) - Teaching assistant experience  
-- [Miscellaneous](/misc/) - Personal interests and activities
+- [Miscellaneous](/misc/) - Personal interests and activities -->
 
-## Contact Information
+<!-- ## Contact Information
 
 - **Email**: xuanfeir@gmail.com
-- **Location**: Madison, WI, USA
+- **Location**: Madison, WI, USA -->
