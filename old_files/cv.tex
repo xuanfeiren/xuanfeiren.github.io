@@ -1,0 +1,361 @@
+%-------------------------
+% Resume in Latex
+% Author : Jake Gutierrez
+% Based off of: https://github.com/sb2nov/resume
+% License : MIT
+%------------------------
+
+\documentclass[letterpaper,11pt]{article}
+
+\usepackage{latexsym}
+\usepackage[empty]{fullpage}
+\usepackage{titlesec}
+\usepackage{marvosym}
+\usepackage[usenames,dvipsnames]{color}
+\usepackage{verbatim}
+\usepackage{enumitem}
+\usepackage[hidelinks]{hyperref}
+\usepackage{fancyhdr}
+\usepackage[english]{babel}
+\usepackage{tabularx}
+\usepackage{fontawesome5}
+\usepackage{multicol}
+\setlength{\multicolsep}{-3.0pt}
+\setlength{\columnsep}{-1pt}
+\input{glyphtounicode}
+
+
+%----------FONT OPTIONS----------
+% sans-serif
+% \usepackage[sfdefault]{FiraSans}
+% \usepackage[sfdefault]{roboto}
+% \usepackage[sfdefault]{noto-sans}
+% \usepackage[default]{sourcesanspro}
+
+% serif
+% \usepackage{CormorantGaramond}
+% \usepackage{charter}
+
+
+\pagestyle{fancy}
+\fancyhf{} % clear all header and footer fields
+\fancyfoot{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+
+% Adjust margins
+\addtolength{\oddsidemargin}{-0.6in}
+\addtolength{\evensidemargin}{-0.5in}
+\addtolength{\textwidth}{1.19in}
+\addtolength{\topmargin}{-.7in}
+\addtolength{\textheight}{1.4in}
+
+\urlstyle{same}
+
+\raggedbottom
+\raggedright
+\setlength{\tabcolsep}{0in}
+
+% Sections formatting
+\titleformat{\section}{
+  \vspace{-4pt}\scshape\raggedright\large\bfseries
+}{}{0em}{}[\color{black}\titlerule \vspace{-5pt}]
+
+% Ensure that generate pdf is machine readable/ATS parsable
+\pdfgentounicode=1
+
+%-------------------------
+% Custom commands
+\newcommand{\resumeItem}[1]{
+  \item\small{
+    {#1 \vspace{-2pt}}
+  }
+}
+
+\newcommand{\classesList}[4]{
+    \item\small{
+        {#1 #2 #3 #4 \vspace{-2pt}}
+  }
+}
+
+\newcommand{\resumeSubheading}[4]{
+  \vspace{-2pt}\item
+    \begin{tabular*}{1.0\textwidth}[t]{l@{\extracolsep{\fill}}r}
+      \textbf{#1} & \textbf{\small #2} \\
+      \textit{\small#3} & \textit{\small #4} \\
+    \end{tabular*}\vspace{-7pt}
+}
+
+\newcommand{\resumeSubSubheading}[2]{
+    \item
+    \begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
+      \textit{\small#1} & \textit{\small #2} \\
+    \end{tabular*}\vspace{-7pt}
+}
+
+\newcommand{\resumeProjectHeading}[2]{
+    \item
+    \begin{tabular*}{1.001\textwidth}{l@{\extracolsep{\fill}}r}
+      \small#1 & \textbf{\small #2}\\
+    \end{tabular*}\vspace{-7pt}
+}
+
+\newcommand{\resumeSubItem}[1]{\resumeItem{#1}\vspace{-4pt}}
+
+\renewcommand\labelitemi{$\vcenter{\hbox{\tiny$\bullet$}}$}
+\renewcommand\labelitemii{$\vcenter{\hbox{\tiny$\bullet$}}$}
+
+\newcommand{\resumeSubHeadingListStart}{\begin{itemize}[leftmargin=0.0in, label={}]}
+\newcommand{\resumeSubHeadingListEnd}{\end{itemize}}
+\newcommand{\resumeItemListStart}{\begin{itemize}}
+\newcommand{\resumeItemListEnd}{\end{itemize}\vspace{-5pt}}
+
+%-------------------------------------------
+%%%%%%  RESUME STARTS HERE  %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\begin{document}
+
+%----------HEADING----------
+% \begin{tabular*}{\textwidth}{l@{\extracolsep{\fill}}r}
+%   \textbf{\href{http://sourabhbajaj.com/}{\Large Sourabh Bajaj}} & Email : \href{mailto:sourabh@sourabhbajaj.com}{sourabh@sourabhbajaj.com}\\
+%   \href{http://sourabhbajaj.com/}{http://www.sourabhbajaj.com} & Mobile : +1-123-456-7890 \\
+% \end{tabular*}
+
+\begin{center}
+    {\Huge \scshape Xuanfei Ren} \\ \vspace{10pt}
+    % \href{http://home.ustc.edu.cn/~matchbox/}{\underline{http://home.ustc.edu.cn/\textasciitilde matchbox/}}  %\vspace{10pt}
+    % \small \raisebox{-0.1\height}\faPhone\  187-3132-6126
+    ~ \href{mailto:xuanfeir@gmail.com}{\raisebox{-0.2\height}\faEnvelope\  \underline{xuanfeir@gmail.com}} ~ 
+    % \href{https://linkedin.com/in//}{\raisebox{-0.2\height}\faLinkedin\ \underline{linkedin.com/in/xuanfei-ren-803b22273}}  ~
+    \href{https://github.com/xuanfeiren}{\raisebox{-0.2\height}\faGithub\ \underline{github.com/xuanfeiren}}
+   
+\end{center}
+
+
+%-----------EDUCATION-----------
+\section{Education}
+  \resumeSubHeadingListStart
+  \resumeSubheading
+      {University of Wisconsin-Madison }{Madison, USA}
+      {PhD student, advised by \href{https://tengyangxie.github.io/}{Tengyang Xie}, Department of Computer Sciences.}{Aug. 2024 -- }
+     \vspace{9pt}
+  \begin{multicols}{2}
+\begin{itemize}[itemsep=-1pt, parsep=4pt]
+    \item Overall GPA: 4.0/4.0
+\end{itemize}
+\end{multicols}
+
+
+%------RELEVANT COURSEWORK-------
+
+
+
+
+        \vspace{5pt}
+    
+    
+    \resumeSubheading
+      {University of Science and Technology of China }{Hefei, China}
+      {Bachelor of Science in Mathematics, specialization in  Probability and Statistics.}{Aug. 2020 -- Jun. 2024 }
+\resumeSubHeadingListEnd
+% \vspace{3pt}
+\iffalse
+  \begin{multicols}{2}
+\begin{itemize}[itemsep=-1pt, parsep=4pt]
+    \item Overall GPA: 3.93/4.3 (91.14/100)
+    \item Rank: 12/164
+    \item Major GPA: 4.08/4.3 (93.07/100)
+    \item GPA (last two years): 4.16/4.3 (94.73/100)
+\end{itemize}
+\end{multicols}
+\fi
+
+%------RELEVANT COURSEWORK-------
+
+% \vspace{9pt}
+\iffalse
+\textbf{Relevant Coursework}
+    %\resumeSubHeadingListStart
+    \vspace{4pt}
+        \begin{multicols}{3}
+            \begin{itemize}[itemsep=-1pt, parsep=4pt]
+                \item\small Mathematical Analysis (92)
+                \item Linear Algebra (93)
+                \item Differential Equations (100)
+                \item Advanced Probability* (100)
+                \item Applied Stochastic Processes (95)
+                \item Advanced Stochastic Processes*(96)
+                \item Data Structures and Databases (93)
+                \item Real Analysis (98)
+                \item Complex Analysis (95)
+                \item Functional Analysis (93)
+                \item Modern Algebra (95)
+                \item Differential Geometry (93)
+                \item Mathematical Statistics (97)
+                \item Regression Analysis (95)
+                \item Multivariate statistical analysis (98)
+                \item Machine Learning (95)
+            \end{itemize}
+        \end{multicols}
+        \vspace{5pt}
+    \textit{*Graduate courses}
+    \fi
+    %\resumeSubHeadingListEnd
+% \vspace{9pt}
+
+
+
+
+
+
+
+
+
+
+
+%-----------EXPERIENCE-----------
+\section{Publication}
+\begin{itemize}
+    \item
+    \textbf{\underline{Xuanfei Ren}}, Tianyuan Jin, {Pan Xu}. \\
+     \href{https://arxiv.org/abs/2406.04137}{\textbf{Optimal Batched Linear Bandits.}} \\
+    \textit{In Proc. of the 41st International Conference on Machine Learning (\textbf{ICML 2024}).} 
+\end{itemize}
+\section{Research Interests}
+\begin{multicols}{2}
+\begin{itemize}[itemsep=-1pt, parsep=4pt]
+\item LLM Post-training
+\item  AI Agent
+\item Reinforcement Learning 
+\item Artificial Intelligence
+% \item Information theory
+% \item Optimization
+% \item High Dimensional Statistics
+\end{itemize}
+\end{multicols}
+\section{Research Experience}
+  \resumeSubHeadingListStart
+    \resumeSubheading
+  {Heuristic Exploration for Self‑Improving Agentic Systems}{University of Wisconsin–Madison}
+  {Work with Dr. Ching-An Cheng (Microsoft Research) and Prof.\ Tengyang Xie}{Feb.\ 2025 -- Present}
+  \resumeItemListStart
+    \resumeItem{Established a handcrafted baseline agent for the benchmark and defined reproducible evaluation metrics.}
+    \resumeItem{Integrated Microsoft’s {Trace} framework to automate structured prompt tuning and decision‑logic optimization.}
+    \resumeItem{Designed and implement novel meta search algorithms  that exploit Trace to enhance the optimization process.}
+    
+  \resumeItemListEnd
+
+    \resumeSubheading
+      {Offline Alignment for Language Models}{University of Wisconsin-Madison}
+     {Advisor: Prof. Tengyang Xie }{Jan. 2024 --  }
+      \resumeItemListStart
+        \resumeItem{Performed an in-depth literature review on offline reinforcement learning (RL) algorithms.}
+        \resumeItem{Applied offline RL algorithms to enhance alignment in large language models (LLMs).}
+      \resumeItemListEnd
+
+      \resumeSubheading
+      {Offline Reinforcement Learning and Policy Evaluation Theory}{University of Wisconsin-Madison}
+     {Advisor: Prof. Tengyang Xie }{Sept. 2024 --  }
+      \resumeItemListStart
+      \resumeItem{Developed theoretical insights into value-based reinforcement learning (RL) algorithms.}
+\resumeItem{Theoretically analyzed estimation and approximation errors across various policy evaluation methods.}
+\resumeItem{Designed and conducted experiments to validate theoretical predictions.}
+      \resumeItemListEnd
+
+ \resumeSubheading
+      {Optimal Batched Linear Bandits.}{Duke University}
+     {Advisor: Prof. Pan Xu (Department of Computer Science, Duke University.)}{Aug. 2023 --  Jan. 2024}
+      \resumeItemListStart
+        \resumeItem{Devised an  algorithm striving for asymptotic and non-asymptotic optimality in the linear bandits setting, an achievement previously unattained.}
+        \resumeItem{ Adapted the algorithm into a batched version with provable least batch complexity, extending applicablity to common real-world problems.}
+        \resumeItem{Confirmed the algorithm's superiority over existing baseline methods through rigorous experimentation, showcasing its practical efficacy in linear bandits problems.}
+      \resumeItemListEnd
+ 
+ 
+
+    
+  \resumeSubHeadingListEnd
+
+
+%-----------PROJECTS-----------
+% \section{Course Projects}
+    
+%     \resumeSubHeadingListStart
+%        \resumeSubheading
+%       {Machine Learning}{USTC}
+%       {Advisor: Prof. Defu Lian (Department of Data Science, USTC)}{Sept. 2022 -- Jan. 2023}
+%       \resumeItemListStart
+%         \resumeItem{Details to be done}
+%   \resumeItemListEnd
+
+%    \resumeSubheading
+%       {Regression Analysis}{USTC}
+%       {Advisor: Prof. Yaning Yang (Department of Finance and Statistics, USTC)}{Sept. 2022 -- Jan. 2023}
+%       \resumeItemListStart
+%         \resumeItem{Details to be done}
+%   \resumeItemListEnd
+
+%    \resumeSubheading
+%       {Multivariate Statistical Analysis}{USTC}
+%       {Advisor: Prof. Yaning Yang (Department of Finance and Statistics, USTC)}{Mar. 2023 -- Jul. 2023}
+%       \resumeItemListStart
+%         \resumeItem{Details to be done}
+%   \resumeItemListEnd
+%     \resumeSubHeadingListEnd
+
+
+% \section{Honors}
+% \begin{multicols}{2}
+% \begin{itemize}[itemsep=-1pt, parsep=4pt]
+%     \item China Optics Valley Award (top 2\%), 2023
+%     \item Huawei Scholarship (top 3\%), 2022
+%     \item Outstanding Student Scholarship, 2021
+%     \item Outstanding Freshman Scholarship, 2020
+% \end{itemize}
+% \end{multicols}
+
+%
+%-----------PROGRAMMING SKILLS-----------
+\section{Skills}
+ \begin{itemize}[leftmargin=0.15in, label={}]
+    \small{\item{
+     \textbf{English}{: TOEFL: 108 (R: 29; L: 29; S: 22; W: 28); GRE: 320 (Q: 170; V:150); GRE Subject (Mathematics): 880 (90\%). } \\
+     \textbf{Programming}{: C, Python, PyTorch, R, LaTeX, MATLAB, Mathematica.} \\
+      
+    }}
+ \end{itemize}
+
+
+
+%-----------INVOLVEMENT---------------
+% \section{Leadership / Extracurricular Activities}
+
+% \textbf{Running Association Contribution} \hfill \textit{\small 2020 -- Present}
+% \vspace{-5pt}
+% \resumeItemListStart
+%     \resumeItem {Served as a highly active and valued member, consistently enhancing campus sports events.}
+%     \resumeItem {Demonstrated exceptional leadership as minister, organizing flawless campus marathons and sports activities.}
+% \resumeItemListEnd
+
+% \textbf{Dedicated Volunteering} \hfill \textit{\small 2021}
+% \vspace{-5pt}
+
+% \resumeItemListStart
+%     \resumeItem {Volunteered for the campus singing contest "K Star," showing unmatched dedication to logistics and coordination.}
+%     \resumeItem {Engaged in impactful social practice and scientific exploration in the Dabie mountain region.}
+% \resumeItemListEnd
+
+% \textbf{Completed Grueling Half Marathons and Hikes} \hfill \textit{\small 2021 -- 2023}
+
+% \vspace{-5pt}
+
+% \resumeItemListStart
+%         \resumeItem{Finished an extraordinary 100-kilometer New Year's hike in $28.5$ hours.}
+%         \resumeItem{Completed a challenging off-road half marathon with $700+$ meters of elevation gain.}
+%   \resumeItemListEnd
+   
+
+
+
+\end{document}

@@ -9,10 +9,10 @@
 # Basic Site Settings
 locale                   : "en-US"
 site_theme               : "default" # Currently available options are "default", "air"
-title                    : "Your Name / Site Title"
+title                    : "Xuanfei Ren's Homepage"
 title_separator          : "-"
-name                     : &name "Your Name"
-description              : &description "Your Name's academic portfolio"   # Update this with a general description of your site, this is the default if not overridden by a page
+name                     : &name "Xuanfei Ren"
+description              : &description "PhD student in Computer Science at University of Wisconsin-Madison"   # Update this with a general description of your site, this is the default if not overridden by a page
 url                      : https://xuanfeiren.github.io # The base hostname & protocol for your site e.g. "https://[your GitHub username].github.io",
                                                            # or if you already have some other page hosted on Github then use "https://[your GitHub username].github.io/[Your Repo Name]"
 baseurl                  : "" # the subpath of your site, e.g. "/blog"
@@ -24,13 +24,13 @@ repository               : "xuanfeiren/xuanfeiren.github.io"
 author:
   # Biographic information
   avatar           : "profile.png"
-  name             : "Your Sidebar Name"
+  name             : "Xuanfei Ren"
   pronouns         : # example: "she/her"  
-  bio              : "Short biography for the left-hand sidebar"
-  location         : "Earth"
-  employer         : "Red Brick University"
+  bio              : "PhD student in Computer Science at UW-Madison. Research interests in bandit and reinforcement learning theory."
+  location         : "Madison, WI"
+  employer         : "University of Wisconsin-Madison"
   uri              : # URL
-  email            : "none@example.org" 
+  email            : "xuanfeir@gmail.com" 
 
   # Academic websites
   academia         : # URL
@@ -48,7 +48,7 @@ author:
   bitbucket        : # Username - Update with your username on the site
   codepen          : # Username
   dribbble         : # Username
-  github           : "academicpages"
+  github           : "xuanfeiren"
   kaggle           : # Username  
   stackoverflow    : # User number or user number and name (i.e., use "1" or "1/jeff-atwood")    
 
