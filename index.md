@@ -18,7 +18,8 @@ I believe that with dedicated research efforts, the five years of PhD study can 
 
 ## Research Interests
 
- My current research interests span broadly across AI agents and reinforcement learning, encompassing both theoretical foundations and experimental work. If you share similar interests, feel free to reach out for a chat!
+ My current research interests span broadly across AI agents and reinforcement learning, encompassing both theoretical foundations and experimental work. 
+ <!-- If you share similar interests, feel free to reach out for a chat! -->
 
 My recent project focuses on leveraging [OpenTrace](https://github.com/AgentOpt/OpenTrace) to optimize AI agents, in collaboration with [Ching-An Cheng](https://www.chinganc.com/) (Google Research) and [Allen Nie](https://anie.me/about) (Google DeepMind). I am designing various efficient search algorithms to achieve optimal performance in agent optimization. This work is open-source, and I encourage everyone in the agent research community to explore and contribute!
 
