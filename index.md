@@ -10,6 +10,8 @@ I am Xuanfei Ren (任宣霏), a PhD student in Computer Science at the [Universi
 
 <!-- You are welcomed to see my notes [here](/notes/).  -->
 
+🔍 **I'm actively seeking an internship starting from 2026 (spring/summer). Please feel free to reach out to me!**
+
 ## Research Interests
 
 I believe that with dedicated research efforts, the five years of PhD study can be highly productive and meaningful. My current research interests span broadly across AI agents and reinforcement learning, encompassing both theoretical foundations and experimental work. If you share similar interests, feel free to reach out for a chat!
