@@ -6,6 +6,7 @@ author_profile: true
 
 I am Xuanfei Ren (任宣霏), a PhD student in Computer Science at the [University of Wisconsin-Madison](https://www.wisc.edu/), advised by [Prof. Tengyang Xie](https://tengyangxie.github.io/). I completed my Bachelor of Science in Mathematics (specialization in Probability and Statistics) from the [University of Science and Technology of China (USTC)](http://en.ustc.edu.cn/) in 2024.
 
+📄 **[Download my CV](https://xuanfeiren.github.io/files/CV_Xuanfei_Ren.pdf)** (PDF)
 
 <!-- You are welcomed to see my notes [here](/notes/).  -->
 
