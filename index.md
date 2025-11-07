@@ -6,6 +6,8 @@ author_profile: true
 
 I am Xuanfei Ren (任宣霏), a PhD student in Computer Science at the [University of Wisconsin-Madison](https://www.wisc.edu/), advised by [Prof. Tengyang Xie](https://tengyangxie.github.io/). I completed my Bachelor of Science in Mathematics (specialization in Probability and Statistics) from the [University of Science and Technology of China (USTC)](http://en.ustc.edu.cn/) in 2024.
 
+I believe that with dedicated research efforts, the five years of PhD study can be highly productive and meaningful.
+
 📄 **[Download my CV](https://xuanfeiren.github.io/files/CV_Xuanfei_Ren.pdf)** (PDF)
 
 <!-- You are welcomed to see my notes [here](/notes/).  -->
@@ -14,9 +16,9 @@ I am Xuanfei Ren (任宣霏), a PhD student in Computer Science at the [Universi
 
 ## Research Interests
 
-I believe that with dedicated research efforts, the five years of PhD study can be highly productive and meaningful. My current research interests span broadly across AI agents and reinforcement learning, encompassing both theoretical foundations and experimental work. If you share similar interests, feel free to reach out for a chat!
+ My current research interests span broadly across AI agents and reinforcement learning, encompassing both theoretical foundations and experimental work. If you share similar interests, feel free to reach out for a chat!
 
-My recent project focuses on leveraging [OpenTrace](https://github.com/AgentOpt/OpenTrace) to optimize AI agents. I'm designing various efficient search algorithms, aiming to achieve the best efficiency in agent optimization. This is also an open-source work - I hope everyone in the agent field will give it a try!
+My recent project focuses on leveraging [OpenTrace](https://github.com/AgentOpt/OpenTrace) to optimize AI agents, in collaboration with [Ching-An Cheng](https://www.chinganc.com/) (Google Research) and [Allen Nie](https://anie.me/about) (Google DeepMind). I am designing various efficient search algorithms to achieve optimal performance in agent optimization. This work is open-source, and I encourage everyone in the agent research community to explore and contribute!
 
 ## Recent News
 
