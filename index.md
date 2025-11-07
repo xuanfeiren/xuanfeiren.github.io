@@ -12,7 +12,9 @@ I believe that with dedicated research efforts, the five years of PhD study can 
 
 <!-- You are welcomed to see my notes [here](/notes/).  -->
 
-🔍 **I'm actively seeking an internship starting from 2026 (spring/summer). Please feel free to reach out to me!**
+<div style="background-color: #ffebee; border-left: 4px solid #f44336; padding: 12px; margin: 16px 0; border-radius: 4px;">
+🔍 <strong style="color: #d32f2f;">I'm actively seeking an internship starting from 2026 (spring/summer). Please feel free to reach out to me!</strong>
+</div>
 
 ## Research Interests
 
