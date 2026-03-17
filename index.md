@@ -24,7 +24,7 @@ Reinforcement learning (RL), from its theoretical foundations to its empirical s
   Determining whether RL is the right modeling framework is just as important as solving the resulting problem. I am interested in understanding when RL offers genuine advantages over simpler paradigms, especially in settings involving long-term credit assignment, sequential decision-making, and strategic exploration.
 
 - *How can RL problems be solved efficiently?*
-  Once a problem is cast in the RL framework, I study algorithms that are both sample- and computationally efficient, with an emphasis on rigorous theoretical guarantees alongside strong empirical performance.
+  Once a problem is cast in the RL framework, I study algorithms that are both sample and computationally efficient, with an emphasis on rigorous theoretical guarantees alongside strong empirical performance.
 
 - *How can RL be extended beyond standard MDPs?*
   I am interested in extending RL beyond classical MDP formulations to richer, more open-ended settings. In collaboration with [Ching-An Cheng](https://www.chinganc.com/) (Google Research) and [Allen Nie](https://anie.me/about) (Google DeepMind), I work on [OpenTrace](https://github.com/AgentOpt/OpenTrace), an open-source framework for end-to-end training of AI agents. Our recent paper, [POLCA](https://arxiv.org/abs/2603.14769), develops an efficient algorithm for generative optimization with LLMs. More broadly, I am excited about the role of LLMs in self-improving agentic systems, with applications ranging from kernel and code optimization to automated scientific discovery.
