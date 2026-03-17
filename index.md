@@ -33,6 +33,8 @@ Reinforcement learning (RL), from its theoretical foundations to its empirical s
 
 ## Recent News
 
+- **[2026/03]** We released [POLCA](https://arxiv.org/abs/2603.14769), a search algorithm in [OpenTrace](https://github.com/AgentOpt/OpenTrace) for generative optimization with LLMs.
+
 - **[2024/08]** Started my PhD journey at University of Wisconsin-Madison, advised by Prof. Tengyang Xie.
 
 - **[2024/05]** Our paper "[Optimal Batched Linear Bandits](https://arxiv.org/abs/2406.04137)" gets accepted to **ICML 2024**. Joint work with Tianyuan Jin and Prof. Pan Xu.
