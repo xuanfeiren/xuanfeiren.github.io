@@ -31,6 +31,15 @@ Reinforcement learning (RL), from its theoretical foundations to its empirical s
 
 
 
+## Publications
+
+- [**When Does Trajectory-Level Supervision Permit Efficient Offline Reinforcement Learning?**](https://arxiv.org/abs/2606.18531) <br> <u>**Xuanfei Ren**</u>, Tengyang Xie. <br> 
+
+- [**POLCA: Stochastic Generative Optimization with LLM**](https://xuanfeiren.github.io/polca/) <br> <u>**Xuanfei Ren**</u>, Allen Nie, Tengyang Xie, Ching-An Cheng. <br> *In Proc. of the 43rd International Conference on Machine Learning (**ICML 2026**).*
+
+- [**Optimal Batched Linear Bandits.**](https://arxiv.org/abs/2406.04137) <br> <u>**Xuanfei Ren**</u>, Tianyuan Jin, Pan Xu. <br> *In Proc. of the 41st International Conference on Machine Learning (**ICML 2024**).*
+
+
 ## Recent News
 
 - **[2026/03]** We released [POLCA](https://arxiv.org/abs/2603.14769), a search algorithm in [OpenTrace](https://github.com/AgentOpt/OpenTrace) for generative optimization with LLMs.
