@@ -33,11 +33,11 @@ Reinforcement learning (RL), from its theoretical foundations to its empirical s
 
 ## Publications
 
-- [**When Does Trajectory-Level Supervision Permit Efficient Offline Reinforcement Learning?**](https://arxiv.org/abs/2606.18531) <br> **Xuanfei Ren**, Tengyang Xie. <br> 
+- **When Does Trajectory-Level Supervision Permit Efficient Offline Reinforcement Learning?** [[PDF](https://arxiv.org/pdf/2606.18531), [arXiv](https://arxiv.org/abs/2606.18531)] <br> **Xuanfei Ren**, Tengyang Xie <br> 
 
-- [**POLCA: Stochastic Generative Optimization with LLM**](https://xuanfeiren.github.io/polca/) <br> **Xuanfei Ren**, Allen Nie, Tengyang Xie, Ching-An Cheng. <br> *In Proc. of the 43rd International Conference on Machine Learning (**ICML 2026**).*
+- **POLCA: Stochastic Generative Optimization with LLM.** [[PDF](https://arxiv.org/pdf/2603.14769), [arXiv](https://arxiv.org/abs/2603.14769), [code](https://github.com/rlx-lab/POLCA), [website](https://xuanfeiren.github.io/polca/)] <br> **Xuanfei Ren**, Allen Nie, Tengyang Xie, Ching-An Cheng <br> International Conference on Machine Learning (ICML) 2026
 
-- [**Optimal Batched Linear Bandits.**](https://arxiv.org/abs/2406.04137) <br> **Xuanfei Ren**, Tianyuan Jin, Pan Xu. <br> *In Proc. of the 41st International Conference on Machine Learning (**ICML 2024**).*
+- **Optimal Batched Linear Bandits.** [[PDF](https://arxiv.org/pdf/2406.04137), [arXiv](https://arxiv.org/abs/2406.04137)] <br> **Xuanfei Ren**, Tianyuan Jin, Pan Xu <br> International Conference on Machine Learning (ICML) 2024
 
 
 ## Recent News
