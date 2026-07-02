@@ -90,6 +90,8 @@
   figure img{max-width:100%;height:auto;display:block;margin:0 auto}
   figure.wide{max-width:100%}
   figure.narrow{max-width:440px}
+  figure.sm{max-width:460px}
+  figure.md{max-width:600px}
   figure .frow{display:flex;gap:22px;justify-content:center;align-items:flex-end}
   figure .frow img{flex:1 1 0;min-width:0;max-width:50%}
   figure .frow.eqh{align-items:center;gap:18px}
@@ -114,6 +116,14 @@
   .tblwrap{overflow-x:auto;margin:18px 0 8px}
   table{border-collapse:collapse;width:100%;font-size:14.5px;min-width:460px}
   th,td{padding:11px 14px;text-align:center;border-bottom:1px solid var(--line)}
+  /* two tables side by side */
+  .tblrow{display:flex;gap:26px;align-items:flex-start;margin:8px 0}
+  .tblrow .tblcol{flex:1 1 0;min-width:0}
+  .tblrow .tblwrap{margin:0}
+  .tblrow table{font-size:13px;min-width:0}
+  .tblrow th,.tblrow td{padding:7px 9px}
+  .tblrow th{font-size:11.5px}
+  @media(max-width:640px){.tblrow{flex-direction:column;gap:18px}.tblrow table{font-size:14px}}
   th{font-weight:600;color:var(--muted);font-size:13px;text-transform:uppercase;letter-spacing:.03em}
   td:first-child,th:first-child{text-align:left}
   tbody tr:last-child td{border-bottom:none}
@@ -220,14 +230,29 @@
 <section id="challenges">
   <div class="wrap">
     <h2><span class="pre">02</span>Two challenges</h2>
-    <p class="lead">We study <b class="k">stochastic generative optimization</b> of a parameterized program \(P_\theta\): an LLM proposes candidates, a guide returns a numerical score and text feedback, and we want the best program under a fixed evaluation budget. Most recent self-evolving-agent systems share the same loop — propose, validate, keep the best, repeat, with a few parallel threads for exploration. Two problems in that loop are usually left unhandled.</p>
+    <p class="lead">We study <b class="k">stochastic generative optimization</b> of a parameterized program \(P_\theta\): an LLM optimizer replaces the human expert in the tuning loop — it proposes candidates, a guide scores them and returns text feedback, and we want the best program under a fixed budget.</p>
 
-    <h3>Stochasticity</h3>
-    <p>A program's score is rarely a fixed number. It varies with the sampled minibatch, with the program's own execution (an LLM agent run twice gives different traces), and with the evaluator (an LLM judge or human is stochastic and subjective). As a result, a <em>single program needs many evaluations</em> before its average settles to a near-deterministic, reliable estimate of its true reward \(\mu(\theta)\). Committing to the best candidate after one stochastic evaluation just fits the randomness. POLCA instead keeps a priority queue that never freezes a score: high-priority programs are re-selected and re-evaluated, so their empirical mean concentrates toward \(\mu(\theta)\) over time. The priority function is a free choice — the mean, UCB, or others recover different search strategies within the same algorithm.</p>
+    <figure class="md">
+      <img src="poster/figures/fig_optimizer_contrast.png" alt="From manual iteration to a generative optimization loop">
+      <figcaption><span class="lab">Figure 2.</span> The loop shared by most self-evolving-agent systems. Two problems in it are usually left unhandled.</figcaption>
+    </figure>
 
-    <h3>Duplication</h3>
-    <p>Prompted with similar context, an LLM optimizer tends to emit many semantically near-identical candidates. So as optimization proceeds, the <em>number of candidates grows roughly linearly with the number of iterations, while the amount of genuinely useful, distinct information does not</em>. This is what makes the two problems compound: each program already needs many evaluations to be scored reliably, and if we had to score <em>every</em> generated program this way, a candidate pool that keeps growing linearly quickly becomes intractable — and simply adding parallel threads does not help, since the threads chase the same few ideas.</p>
-    <p>POLCA breaks the compounding by admitting a new candidate only when it is sufficiently dissimilar (distance \(> \varepsilon\)) from everything already in memory, keeping the queue an <b>ε-Net</b>: a bounded, diverse cover of the program space. Crucially this test is made on a reward-free similarity signal, not on stochastic scores, so de-duplication is unaffected by evaluation stochasticity. The evaluation budget then goes to scoring a bounded set of genuinely distinct programs rather than re-confirming near-duplicates — exactly the quantity \(N_\varepsilon\) that appears in <a href="#theory">Theorem 1</a>.</p>
+    <h3>Challenge 1 · Stochasticity</h3>
+    <p>The same program scores differently every time — from the sampled minibatch, the program's own execution, and a stochastic evaluator. One evaluation just fits the noise; a reliable estimate of the true reward \(\mu(\theta)\) needs many.</p>
+    <figure class="sm">
+      <img src="poster/figures/fig_scatter.png" alt="Noisy scores scatter around the true value">
+      <figcaption><span class="lab">Figure 3.</span> Noisy scores of one program scatter around its true value \(\mu(\theta)\).</figcaption>
+    </figure>
+
+    <h3>Challenge 2 · Duplication</h3>
+    <p>Prompted with similar context, the optimizer emits many near-identical candidates: the candidate count grows linearly while distinct information does not. Combined with Challenge 1 — each program already needs many evaluations — scoring every near-duplicate becomes intractable.</p>
+    <figure class="md">
+      <div class="frow">
+        <img src="poster/figures/fig_dup_optimizer.png" alt="Optimizer emits many near-identical programs">
+        <img src="poster/figures/fig_dup_growth.png" alt="Program count grows while useful information stays flat">
+      </div>
+      <figcaption><span class="lab">Figure 4.</span> The optimizer keeps generating redundant programs; useful information stays flat. POLCA's fix — the ε-Net (<a href="#method">§03</a>) — keeps memory a bounded, diverse cover of size \(N_\varepsilon\).</figcaption>
+    </figure>
   </div>
 </section>
 
@@ -240,11 +265,22 @@
     <h3>One iteration</h3>
     <p>Each iteration samples a minibatch \(\mathcal{B}\) from the dataset, selects the highest-priority programs from the queue, and evaluates them on \(\mathcal{B}\) to refresh their statistics. The optimizer then proposes new candidates from this fresh feedback plus a global summary; surviving the similarity filter, they are evaluated on the same \(\mathcal{B}\) (for a fair comparison) and merged into memory. A summarize step finally compresses memory into the context used next round. The remaining subsections explain each role and what is — and is not — fixed about it.</p>
 
-    <h3>Priority-queue memory</h3>
-    <p>The queue is the device that handles <b>stochasticity</b>. Every candidate carries the full history of its evaluations, and is ranked by a priority computed from that history — by default the empirical mean score, which converges to the true reward \(\mu(\theta)\) as a program is re-selected and re-evaluated. This is what lets POLCA spend more samples on promising programs while still being able to <em>revisit</em> a candidate that looked weak under an unlucky early evaluation, rather than discarding it. The priority is itself a knob: replacing the mean with a UCB score yields provably optimistic exploration (used in the theory), and other priorities recover other classical search strategies within the same machinery.</p>
+    <h3>Priority-queue memory <span class="muted" style="font-weight:400">— handles stochasticity</span></h3>
+    <p>Every candidate carries its full evaluation history and is ranked by a priority — by default the empirical mean, which concentrates toward \(\mu(\theta)\) as a program is re-selected and re-evaluated. So a candidate that looked weak under an unlucky early draw is <em>revisited</em>, not discarded. (The priority is a knob: a UCB score gives the optimistic exploration used in the theory.)</p>
+    <figure class="md">
+      <img src="poster/figures/fig_priority_queue.png" alt="Priority queue re-evaluates candidates so the empirical mean concentrates toward the true value">
+      <figcaption><span class="lab">Figure 5.</span> The queue never freezes a score: re-evaluating a program drives its empirical mean \(\hat\mu\) toward the true value \(\mu(\theta)\), then re-ranks the queue.</figcaption>
+    </figure>
 
-    <h3>ε-Net: a semantic filter on the program space</h3>
-    <p>The ε-Net is the device that handles <b>duplication</b>. It is a generic <em>semantic filter</em>: a new candidate is admitted only if it is farther than \(\varepsilon\) from every program already in memory, under some similarity measure \(\tilde d(\cdot,\cdot)\) on programs. This keeps memory a bounded, diverse cover of the space — its size \(N_\varepsilon\) depends on \(\varepsilon\) and the program space, not on the iteration count — so the evaluation budget is spent on distinct programs instead of near-duplicates. The threshold \(\varepsilon\) is a coverage–cost dial set by the user: larger \(\varepsilon\) means coarser discretization, fewer programs, faster early progress, and a small approximation error.</p>
+    <h3>ε-Net: a semantic filter <span class="muted" style="font-weight:400">— handles duplication</span></h3>
+    <p>A new candidate is admitted only if it is farther than \(\varepsilon\) from every program in memory, under a similarity \(\tilde d(\cdot,\cdot)\). Memory stays a bounded, diverse cover of size \(N_\varepsilon\) — set by \(\varepsilon\) and the space, not the iteration count. The test uses a <em>reward-free</em> signal, so de-duplication is unaffected by evaluation noise.</p>
+    <figure class="md">
+      <div class="frow eqh">
+        <img src="poster/figures/fig_epsnet_cover.png" alt="Memory as a bounded diverse cover of size N-epsilon">
+        <img src="poster/figures/fig_epsnet_rule.png" alt="Accept a new candidate only if its distance exceeds epsilon">
+      </div>
+      <figcaption><span class="lab">Figure 6.</span> <em>Left:</em> memory as an ε-Net — a bounded, diverse cover of size \(N_\varepsilon\); near-duplicates inside an ε-ball are rejected. <em>Right:</em> the reward-free accept/reject test.</figcaption>
+    </figure>
     <div class="remark">
       <b>Beyond text embeddings.</b> In this paper we instantiate \(\tilde d\) with distances between frontier text-embedding vectors of each program, which works well because programs with nearby embeddings tend to share similar scores. But nothing in POLCA requires a text embedding — any reasonable way to measure similarity among candidates (a code-structure metric, a behavioral signature, a learned embedding for non-text parameters) can play this role. The key property we rely on is only that the filter is computed from a <em>reward-free</em> signal, so de-duplication does not inherit evaluation stochasticity.
     </div>
@@ -319,42 +355,46 @@
     <h2><span class="pre">05</span>Experiments</h2>
     <p class="lead">Four benchmarks, each isolating a different source of stochasticity, run in the Trace pipeline with OptoPrime as the optimizer. Baselines are GEPA, OpenEvolve (an open-source AlphaEvolve), and DSPy.</p>
 
-    <div class="blist">
-      <div class="brow"><span class="bn">τ-bench</span><span class="bd">Optimize a tool-use agent's prompt on multi-step retail tasks; sparse binary reward, minibatch + agent-execution stochasticity. <span class="src">gemini-2.0-flash · 10 train / 105 held-out tasks.</span></span></div>
-      <div class="brow"><span class="bn">HotpotQA</span><span class="bd">Prompt optimization for multi-hop QA over 10 paragraphs (2–3 relevant); minibatch + agent-execution stochasticity. <span class="src">gemini-2.5-flash-lite, also gpt-oss-20b.</span></span></div>
-      <div class="brow"><span class="bn">VeriBench</span><span class="bd">Translate Python → verifiable Lean 4; evaluator stochasticity from a 3-step guide (compile, tests, LLM judge), plus a deterministic compile-only variant. <span class="src">claude-3.5-sonnet, also Qwen3.5-122B.</span></span></div>
-      <div class="brow"><span class="bn">KernelBench</span><span class="bd">Optimize CUDA matmul kernels (16 Level-1 tasks) for correctness and speedup over PyTorch (\(\text{fast}_p\)); deterministic. <span class="src">claude-3.7-sonnet · L40S GPU.</span></span></div>
-    </div>
+    <figure class="md">
+      <img src="poster/figures/fig_benchmarks.png" alt="Four benchmark domains and their sources of stochasticity">
+      <figcaption><span class="lab">Figure 7.</span> The four domains, each isolating a different source of stochasticity — from noisy agent execution to a fully deterministic evaluator.</figcaption>
+    </figure>
 
     <figure class="wide">
       <img src="page_assets/combined_4bench_eval_step.png" alt="Search efficiency across four benchmarks">
-      <figcaption><span class="lab">Figure 2.</span> Search efficiency across all four benchmarks. Solid curves show the average highest score at each evaluation step; shaded regions are the standard error across independent runs (6 seeds for τ-bench, 3 for HotpotQA and VeriBench, 1 for KernelBench). POLCA reaches higher final scores at fewer steps throughout.</figcaption>
+      <figcaption><span class="lab">Figure 8.</span> Search efficiency across all four benchmarks. Solid curves show the average highest score at each evaluation step; shaded regions are the standard error across independent runs (6 seeds for τ-bench, 3 for HotpotQA and VeriBench, 1 for KernelBench). POLCA reaches higher final scores at fewer steps throughout.</figcaption>
     </figure>
 
-    <div class="tblwrap">
-      <table>
-        <thead><tr><th>τ-bench Pass@1 (trained on 10 tasks)</th><th>First 10</th><th>Last 105</th><th>All 115</th></tr></thead>
-        <tbody>
-          <tr><td>Base Prompt</td><td>0.348</td><td>0.392</td><td>0.389</td></tr>
-          <tr><td>GEPA</td><td>0.557</td><td>0.417</td><td>0.429</td></tr>
-          <tr><td>OpenEvolve</td><td>0.373</td><td>0.422</td><td>0.418</td></tr>
-          <tr class="ours"><td>POLCA (Ours)</td><td>0.575</td><td>0.425</td><td>0.439</td></tr>
-        </tbody>
-      </table>
-      <p class="tbl-note">Trained on only the first 10 tasks; POLCA wins on the training split and generalizes best to all 115 (+13% over base).</p>
-    </div>
+    <div class="tblrow">
+      <div class="tblcol">
+        <div class="tblwrap">
+          <table>
+            <thead><tr><th>τ-bench Pass@1</th><th>First 10</th><th>Last 105</th><th>All 115</th></tr></thead>
+            <tbody>
+              <tr><td>Base Prompt</td><td>0.348</td><td>0.392</td><td>0.389</td></tr>
+              <tr><td>GEPA</td><td>0.557</td><td>0.417</td><td>0.429</td></tr>
+              <tr><td>OpenEvolve</td><td>0.373</td><td>0.422</td><td>0.418</td></tr>
+              <tr class="ours"><td>POLCA (Ours)</td><td>0.575</td><td>0.425</td><td>0.439</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="tbl-note">Trained on the first 10 tasks; POLCA generalizes best to all 115 (+13% over base).</p>
+      </div>
 
-    <div class="tblwrap">
-      <table>
-        <thead><tr><th>VeriBench Lean 4 compilation (50 calls/task)</th><th>Pass Rate</th></tr></thead>
-        <tbody>
-          <tr><td>DSPy</td><td>0.888 ± .023</td></tr>
-          <tr><td>GEPA</td><td>0.695 ± .010</td></tr>
-          <tr><td>OpenEvolve</td><td>0.738 ± .010</td></tr>
-          <tr class="ours"><td>POLCA (Ours)</td><td>0.952 ± .005</td></tr>
-        </tbody>
-      </table>
-      <p class="tbl-note">POLCA reaches 95.2% (133/140), far above the original VeriBench sequential baseline of 0.593 (67/113).</p>
+      <div class="tblcol">
+        <div class="tblwrap">
+          <table>
+            <thead><tr><th>VeriBench Lean 4 (50 calls/task)</th><th>Pass Rate</th></tr></thead>
+            <tbody>
+              <tr><td>DSPy</td><td>0.888 ± .023</td></tr>
+              <tr><td>GEPA</td><td>0.695 ± .010</td></tr>
+              <tr><td>OpenEvolve</td><td>0.738 ± .010</td></tr>
+              <tr class="ours"><td>POLCA (Ours)</td><td>0.952 ± .005</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="tbl-note">POLCA reaches 95.2% (133/140), vs. the sequential baseline 0.593 (67/113).</p>
+      </div>
     </div>
 
     <h3>Where the gains come from</h3>
@@ -377,7 +417,7 @@
     <p>Removing either component hurts. The ε-Net conserves sampling budget by pruning semantically redundant candidates, so the same score is reached with fewer samples; the Summarizer feeds the optimizer global success/failure patterns drawn from the whole memory rather than a single program. Together they account for the gap between "vanilla" POLCA and the full method.</p>
     <figure class="narrow">
       <img src="page_assets/tau-ablation_num_samples.png" alt="Ablation on the ε-Net and Summarizer">
-      <figcaption><span class="lab">Figure 3.</span> Ablation of the ε-Net and Summarizer on τ-bench (6 seeds). "Vanilla POLCA" removes both components; adding each one improves performance.</figcaption>
+      <figcaption><span class="lab">Figure 9.</span> Ablation of the ε-Net and Summarizer on τ-bench (6 seeds). "Vanilla POLCA" removes both components; adding each one improves performance.</figcaption>
     </figure>
 
     <h3>Sensitivity to the diversity threshold ε</h3>
@@ -387,7 +427,7 @@
         <img src="page_assets/epsilon_ablation_metric_calls.png" alt="Epsilon sensitivity on tau-bench">
         <img src="page_assets/epsilon_ablation_num_samples.png" alt="Epsilon sensitivity on VeriBench">
       </div>
-      <figcaption><span class="lab">Figure 4.</span> Effect of the diversity threshold ε on τ-bench (left) and VeriBench (right).</figcaption>
+      <figcaption><span class="lab">Figure 10.</span> Effect of the diversity threshold ε on τ-bench (left) and VeriBench (right).</figcaption>
     </figure>
 
     <h3>Why not learn a reward model instead of the empirical mean?</h3>
@@ -397,7 +437,7 @@
         <img src="page_assets/tsne_prompt_embeddings.png" alt="t-SNE of prompt embeddings colored by score">
         <img src="page_assets/regressor_comparison.png" alt="Regression vs empirical mean">
       </div>
-      <figcaption><span class="lab">Figure 5.</span> <em>Left:</em> t-SNE of prompt embeddings from a HotpotQA run, each point colored by its test score; nearby programs share similar scores, justifying the embedding-based ε-Net. <em>Right:</em> test score of the program selected by each criterion across training-data fractions (3 runs, ± standard error) — the empirical mean dominates every learned-regressor variant.</figcaption>
+      <figcaption><span class="lab">Figure 11.</span> <em>Left:</em> t-SNE of prompt embeddings from a HotpotQA run, each point colored by its test score; nearby programs share similar scores, justifying the embedding-based ε-Net. <em>Right:</em> test score of the program selected by each criterion across training-data fractions (3 runs, ± standard error) — the empirical mean dominates every learned-regressor variant.</figcaption>
     </figure>
   </div>
 </section>
