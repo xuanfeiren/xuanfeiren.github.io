@@ -75,6 +75,11 @@
   .btn.primary{background:var(--accent);color:#2a2410;border-color:var(--accent)}
   .btn.primary:hover{background:var(--accent-dark);color:#fff}
   .btn svg{width:17px;height:17px}
+  /* affiliation logos */
+  .orgs{display:flex;justify-content:center;align-items:center;flex-wrap:wrap;gap:34px;margin:4px 0 28px}
+  .orgs img{height:40px;width:auto;object-fit:contain;opacity:.92;transition:opacity .15s ease}
+  .orgs img:hover{opacity:1}
+  .orgs img.uw{height:46px}   /* shield logo reads smaller, nudge up */
 
   /* ---------- Sections ---------- */
   section{padding:38px 0;border-bottom:1px solid var(--line)}
@@ -96,7 +101,7 @@
   figure .frow img{flex:1 1 0;min-width:0;max-width:50%}
   figure .frow.eqh{align-items:center;gap:18px}
   figure .frow.eqh img{flex:0 1 auto;width:auto;max-width:50%;max-height:230px}
-  @media(max-width:560px){figure .frow,figure .frow.eqh{flex-direction:column;align-items:center}figure .frow img,figure .frow.eqh img{max-width:100%;max-height:none}}
+  @media(max-width:560px){figure .frow,figure .frow.eqh{flex-direction:column;align-items:center;gap:18px}figure .frow img,figure .frow.eqh img{max-width:340px;max-height:46vh;width:100%;height:auto}}
   figcaption{font-size:13px;color:var(--muted);margin-top:11px;line-height:1.55;text-align:left}
   figcaption .lab{color:var(--fg);font-weight:700}
 
@@ -173,9 +178,40 @@
   footer{padding:40px 0 60px;text-align:center;color:var(--muted);font-size:14px}
   footer a{color:var(--muted);text-decoration:underline}
 
+  /* ---------- Responsive ---------- */
   @media(max-width:640px){
-    section{padding:40px 0}
-    header.hero{padding:44px 0 36px}
+    .wrap{padding:0 18px}
+    section{padding:30px 0}
+    h2{font-size:22px}
+    h3{font-size:16px;margin:20px 0 6px}
+    .lead{font-size:15px}
+    p{font-size:15px}
+    header.hero{padding:36px 0 30px}
+    .badge{margin-bottom:16px}
+    .subtitle{font-size:16px;margin-bottom:22px}
+    .authors{font-size:15.5px;line-height:1.8}
+    .affils{font-size:13.5px;margin-bottom:22px}
+    .orgs{gap:24px;margin:2px 0 22px}
+    .orgs img{height:30px}
+    .orgs img.uw{height:35px}
+    /* figures: tighter rhythm, cap height so no image dominates the screen */
+    figure{margin:20px auto}
+    figure img{max-height:60vh;width:auto}
+    figure.wide img{max-height:none}      /* wide multi-panel plots keep full width */
+    figcaption{font-size:12.5px;margin-top:9px}
+    /* stack side-by-side tables already handled; shrink code block */
+    pre{font-size:11.5px;padding:14px 15px}
+    .thm .bd,.term p{font-size:14px}
+  }
+  @media(max-width:430px){
+    .wrap{padding:0 15px}
+    .btns{gap:9px}
+    .btn{padding:10px 15px;font-size:14px}
+    .orgs{gap:18px}
+    .orgs img{height:26px}
+    .orgs img.uw{height:31px}
+    /* let the three action buttons wrap to a comfortable grid */
+    figure img{max-height:56vh}
   }
 </style>
 </head>
@@ -196,6 +232,12 @@
     </p>
     <p class="affils"><sup>1</sup>University of Wisconsin–Madison &nbsp;·&nbsp; <sup>2</sup>Google DeepMind &nbsp;·&nbsp; <sup>3</sup>Google Research &nbsp;&nbsp;<span class="eq">(* Corresponding authors)</span></p>
 
+    <div class="orgs">
+      <img src="page_assets/logos/uw_madison.png" class="uw" alt="University of Wisconsin–Madison">
+      <img src="page_assets/logos/deepmind.png" alt="Google DeepMind">
+      <img src="page_assets/logos/google_research.png" alt="Google Research">
+    </div>
+
     <div class="btns">
       <a class="btn primary" href="https://github.com/rlx-lab/POLCA" target="_blank" rel="noopener">
         <svg viewBox="0 0 16 16" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>
@@ -205,7 +247,7 @@
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16v16H4z"/><path d="M8 8h8M8 12h8M8 16h5"/></svg>
         arXiv
       </a>
-      <a class="btn" href="https://arxiv.org/pdf/2603.14769" target="_blank" rel="noopener">
+      <a class="btn" href="https://openreview.net/pdf?id=2RKPztDfgZ" target="_blank" rel="noopener">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><path d="M14 2v6h6"/></svg>
         PDF
       </a>
@@ -431,7 +473,7 @@
     </figure>
 
     <h3>Why not learn a reward model instead of the empirical mean?</h3>
-    <p>A natural alternative to re-evaluating programs is to <em>predict</em> their reward: train a regressor on (embedding, reward) pairs and use it to rank every candidate, exploiting the fact that similar programs have similar scores. We tested this carefully. First, the premise holds <em>locally</em> — a t-SNE projection of prompt embeddings collected during a HotpotQA run (Figure 5, left) shows that tightly clustered programs share similar scores, which is exactly the local smoothness the ε-Net relies on to discard near-duplicates. We then asked whether that smoothness can be pushed into a <em>global</em> predictor: we trained an ensemble of five \(\ell_2\)-regularized logistic regressors mapping a program's embedding to its expected reward, each on a random subset of the collected data, and selected the best program in memory by four criteria — the empirical mean and the ensemble's max, mean, and min predictions — across a range of training-set sizes, externally re-testing the chosen program for a precise score. The result is consistent (Figure 5, right): <b>selecting purely by the empirical mean beats every regressor-based criterion.</b> The reason is that local embedding smoothness does <em>not</em> extend to globally accurate score prediction — without explicit problem-instance information, a program's embedding simply does not determine its reward across the whole space, so the learned surrogate overfits the stochastic training scores. This is precisely why POLCA uses the embedding only as a <em>reward-free similarity signal</em> inside the ε-Net (where local smoothness is enough) and keeps a non-parametric empirical mean as the priority (where global accuracy would be needed) — rather than collapsing both jobs into one fragile regression model.</p>
+    <p>A natural alternative to re-evaluating programs is to <em>predict</em> their reward: train a regressor on (embedding, reward) pairs and use it to rank every candidate, exploiting the fact that similar programs have similar scores. We tested this carefully. First, the premise holds <em>locally</em> — a t-SNE projection of prompt embeddings collected during a HotpotQA run (Figure 11, left) shows that tightly clustered programs share similar scores, which is exactly the local smoothness the ε-Net relies on to discard near-duplicates. We then asked whether that smoothness can be pushed into a <em>global</em> predictor: we trained an ensemble of five \(\ell_2\)-regularized logistic regressors mapping a program's embedding to its expected reward, each on a random subset of the collected data, and selected the best program in memory by four criteria — the empirical mean and the ensemble's max, mean, and min predictions — across a range of training-set sizes, externally re-testing the chosen program for a precise score. The result is consistent (Figure 11, right): <b>selecting purely by the empirical mean beats every regressor-based criterion.</b> The reason is that local embedding smoothness does <em>not</em> extend to globally accurate score prediction — without explicit problem-instance information, a program's embedding simply does not determine its reward across the whole space, so the learned surrogate overfits the stochastic training scores. This is precisely why POLCA uses the embedding only as a <em>reward-free similarity signal</em> inside the ε-Net (where local smoothness is enough) and keeps a non-parametric empirical mean as the priority (where global accuracy would be needed) — rather than collapsing both jobs into one fragile regression model.</p>
     <figure class="wide">
       <div class="frow eqh">
         <img src="page_assets/tsne_prompt_embeddings.png" alt="t-SNE of prompt embeddings colored by score">
