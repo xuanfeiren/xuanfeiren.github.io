@@ -6,6 +6,8 @@ author_profile: true
 
 I am Xuanfei Ren (任宣霏), a PhD student in Computer Science at the [University of Wisconsin-Madison](https://www.wisc.edu/), advised by [Prof. Tengyang Xie](https://tengyangxie.github.io/). I completed my Bachelor of Science in Mathematics (specialization in Probability and Statistics) from the [University of Science and Technology of China (USTC)](http://en.ustc.edu.cn/) in 2024.
 
+Currently, I am an Applied Scientist Intern on the Neuron Science team at [Annapurna Labs](https://www.annapurnalabs.com/) (AWS), the organization that develops AWS's [Trainium](https://aws.amazon.com/ai/machine-learning/trainium/) AI accelerator chips. My work there focuses on **agentic kernel optimization** — building LLM-agent systems that automatically generate and optimize high-performance compute kernels for Trainium.
+
 I believe that with dedicated research efforts, the five years of PhD study can be highly productive and meaningful.
 
 📄 **[Download my CV](https://xuanfeiren.github.io/files/CV_Xuanfei_Ren.pdf)** (PDF)
@@ -41,6 +43,8 @@ Reinforcement learning (RL), from its theoretical foundations to its empirical s
 
 
 ## Recent News
+
+- **[2026/05]** Joined the Neuron Science team at [Annapurna Labs](https://www.annapurnalabs.com/) (AWS) as an Applied Scientist Intern, working on agentic kernel optimization for Trainium chips.
 
 - **[2026/03]** We released [POLCA](https://arxiv.org/abs/2603.14769), a search algorithm in [OpenTrace](https://github.com/AgentOpt/OpenTrace) for generative optimization with LLMs.
 
