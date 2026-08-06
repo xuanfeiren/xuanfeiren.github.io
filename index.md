@@ -46,7 +46,7 @@ Reinforcement learning (RL), from its theoretical foundations to its empirical s
 
 - **[2026/05]** Joined the Neuron Science team at [Annapurna Labs](https://en.wikipedia.org/wiki/Annapurna_Labs) (AWS) as an Applied Scientist Intern, working on agentic kernel optimization for Trainium chips.
 
-- **[2026/03]** We released [POLCA](https://arxiv.org/abs/2603.14769), a search algorithm in [OpenTrace](https://github.com/AgentOpt/OpenTrace) for generative optimization with LLMs.
+- **[2026/03]** We released [POLCA](https://xuanfeiren.github.io/polca/), a search algorithm in [OpenTrace](https://github.com/AgentOpt/OpenTrace) for generative optimization with LLMs.
 
 - **[2024/08]** Started my PhD journey at University of Wisconsin-Madison, advised by Prof. Tengyang Xie.
 
