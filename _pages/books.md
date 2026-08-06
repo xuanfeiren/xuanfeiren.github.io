@@ -5,7 +5,7 @@ permalink: /books/
 author_profile: true
 ---
 
-I keep a reading diary on [Douban](https://www.douban.com/people/191702958/). This page is synced automatically from my latest marks there, so it always reflects what I am actually reading. Recommendations are very welcome — [drop me an email](mailto:xuanfeir@gmail.com) if we share a taste in books!
+I keep a reading diary on Douban. This page is synced automatically from my latest marks there, so it always reflects what I am actually reading. Recommendations are very welcome — [drop me an email](mailto:xuanfeir@gmail.com) if we share a taste in books!
 
 {% assign books = site.data.douban | where: "category", "book" %}
 {% assign reading = books | where: "status", "reading" %}
