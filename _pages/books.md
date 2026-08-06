@@ -19,11 +19,12 @@ I keep a reading diary on [Douban](https://www.douban.com/people/191702958/). Th
 {% for item in reading %}{% include douban-card.html item=item %}{% endfor %}
 {% endif %}
 
-{% if finished.size > 0 %}
-## Recently Finished
+{% assign by_year = finished | group_by_exp: "item", "item.date | slice: 0, 4" | sort: "name" | reverse %}
+{% for year in by_year %}
+## Read in {{ year.name }}
 
-{% for item in finished %}{% include douban-card.html item=item %}{% endfor %}
-{% endif %}
+{% for item in year.items %}{% include douban-card.html item=item %}{% endfor %}
+{% endfor %}
 
 {% if wishlist.size > 0 %}
 ## Want to Read

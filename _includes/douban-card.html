@@ -5,6 +5,7 @@
   </a>
   <div>
     <a href="{{ include.item.link }}"><strong>{{ include.item.name }}</strong></a>
+    {% if include.item.author and include.item.author != "" %}<span style="color: #888; font-size: 0.85em; margin-left: 6px;">{{ include.item.author }}</span>{% endif %}
     {% if include.item.stars %}<span style="color: #f5a623; margin-left: 6px;">{% for i in (1..include.item.stars) %}★{% endfor %}</span>{% endif %}
     <span style="color: #888; font-size: 0.85em; margin-left: 6px;">{{ include.item.date }}</span>
     {% if include.item.comment != "" %}

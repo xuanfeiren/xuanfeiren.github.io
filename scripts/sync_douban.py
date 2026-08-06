@@ -1,122 +1,101 @@
 #!/usr/bin/env python3
-"""Sync Douban marks (books/movies/music) into _data/douban.json.
+"""Sync Douban marks (books/movies) into _data/douban.json.
 
-Fetches the public RSS feed of Douban user interests and merges new items
-into the existing data file, so history accumulates over time even though
-the feed only exposes the ~10 most recent marks.
+Uses the public Douban mobile API to fetch the complete lists of books
+(read / reading / want-to-read) and recently watched movies, then writes a
+full snapshot to the data file. On any fetch failure the existing data file
+is left untouched.
 
 Run from the repo root: python3 scripts/sync_douban.py
 """
 
 import json
-import re
 import sys
+import time
+import urllib.parse
 import urllib.request
-import xml.etree.ElementTree as ET
-from email.utils import parsedate_to_datetime
 from pathlib import Path
 
 DOUBAN_USER_ID = "191702958"
-FEED_URL = f"https://www.douban.com/feed/people/{DOUBAN_USER_ID}/interests"
+API_BASE = f"https://m.douban.com/rexxar/api/v2/user/{DOUBAN_USER_ID}/interests"
 DATA_FILE = Path(__file__).resolve().parent.parent / "_data" / "douban.json"
 
-USER_AGENT = (
-    "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) "
-    "AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0 Safari/537.36"
-)
+PAGE_SIZE = 50
+MAX_MOVIES = 100  # keep the movie list bounded; books are always fetched in full
 
-# Order matters: longer prefixes must be tried first.
-STATUS_PREFIXES = [
-    ("最近在读", "reading"),
-    ("在读", "reading"),
-    ("读过", "read"),
-    ("想读", "want_to_read"),
-    ("最近在看", "watching"),
-    ("在看", "watching"),
-    ("看过", "watched"),
-    ("想看", "want_to_watch"),
-    ("最近在听", "listening"),
-    ("在听", "listening"),
-    ("听过", "listened"),
-    ("想听", "want_to_listen"),
+HEADERS = {
+    "User-Agent": (
+        "Mozilla/5.0 (iPhone; CPU iPhone OS 17_0 like Mac OS X) "
+        "AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.0 Mobile/15E148 Safari/604.1"
+    ),
+    "Referer": "https://m.douban.com/mine/book",
+}
+
+# (type, douban status) -> status key used by the site templates
+SOURCES = [
+    ("book", "doing", "reading"),
+    ("book", "done", "read"),
+    ("book", "mark", "want_to_read"),
+    ("movie", "done", "watched"),
 ]
 
-RATING_STARS = {"力荐": 5, "推荐": 4, "还行": 3, "较差": 2, "很差": 1}
+
+def fetch_page(subject_type, status, start):
+    params = urllib.parse.urlencode(
+        {"type": subject_type, "status": status, "start": start, "count": PAGE_SIZE}
+    )
+    request = urllib.request.Request(f"{API_BASE}?{params}", headers=HEADERS)
+    with urllib.request.urlopen(request, timeout=30) as response:
+        return json.load(response)
 
 
-def category_of(link):
-    if "book.douban.com" in link:
-        return "book"
-    if "movie.douban.com" in link:
-        return "movie"
-    if "music.douban.com" in link:
-        return "music"
-    return "other"
-
-
-def parse_item(item):
-    title = item.findtext("title", "").strip()
-    link = item.findtext("link", "").strip()
-    guid = item.findtext("guid", "").strip()
-    description = item.findtext("description", "") or ""
-    pub_date = item.findtext("pubDate", "").strip()
-
-    status, name = "", title
-    for prefix, key in STATUS_PREFIXES:
-        if title.startswith(prefix):
-            status, name = key, title[len(prefix):].strip()
+def fetch_all(subject_type, status, cap=None):
+    interests, start, total = [], 0, None
+    while total is None or start < total:
+        if cap is not None and start >= cap:
             break
-    if not status:
-        return None  # not an interest mark (e.g. a status update)
+        page = fetch_page(subject_type, status, start)
+        total = page["total"]
+        interests.extend(page["interests"])
+        start += PAGE_SIZE
+        time.sleep(1)  # be polite to the API
+    return interests
 
-    rating_match = re.search(r"推荐:\s*([^<\s]+)", description)
-    comment_match = re.search(r"备注:\s*(.+?)</p>", description, re.S)
-    cover_match = re.search(r'<img src="([^"]+)"', description)
 
-    try:
-        date = parsedate_to_datetime(pub_date).strftime("%Y-%m-%d")
-    except (TypeError, ValueError):
-        date = ""
-
+def to_entry(interest, category, status_key):
+    subject = interest["subject"]
+    rating = interest.get("rating") or {}
+    authors = subject.get("author") or []
     return {
-        "guid": guid,
-        "name": name,
-        "link": link,
-        "category": category_of(link),
-        "status": status,
-        "stars": RATING_STARS.get(rating_match.group(1)) if rating_match else None,
-        "comment": comment_match.group(1).strip() if comment_match else "",
-        "cover": cover_match.group(1) if cover_match else "",
-        "date": date,
+        "guid": str(interest["id"]),
+        "name": subject.get("title", ""),
+        "author": ", ".join(authors),
+        "link": subject.get("url", ""),
+        "category": category,
+        "status": status_key,
+        "stars": rating.get("star_count") or None,
+        "comment": (interest.get("comment") or "").strip(),
+        "cover": (subject.get("pic") or {}).get("normal", ""),
+        "date": (interest.get("create_time") or "")[:10],
     }
 
 
 def main():
-    request = urllib.request.Request(FEED_URL, headers={"User-Agent": USER_AGENT})
+    entries = []
     try:
-        with urllib.request.urlopen(request, timeout=30) as response:
-            feed = response.read()
+        for subject_type, douban_status, status_key in SOURCES:
+            cap = MAX_MOVIES if subject_type == "movie" else None
+            for interest in fetch_all(subject_type, douban_status, cap=cap):
+                entries.append(to_entry(interest, subject_type, status_key))
     except Exception as error:  # noqa: BLE001 - keep old data on any fetch failure
         print(f"Fetch failed, keeping existing data: {error}")
         return 0
 
-    items = [parse_item(i) for i in ET.fromstring(feed).iter("item")]
-    items = [i for i in items if i]
-
-    existing = []
-    if DATA_FILE.exists():
-        existing = json.loads(DATA_FILE.read_text(encoding="utf-8"))
-
-    # Merge: newest mark per subject wins (e.g. "reading" later becomes "read").
-    by_link = {entry["link"]: entry for entry in sorted(existing, key=lambda e: e["date"])}
-    for entry in sorted(items, key=lambda e: e["date"]):
-        by_link[entry["link"]] = entry
-
-    merged = sorted(by_link.values(), key=lambda e: e["date"], reverse=True)
+    entries.sort(key=lambda e: e["date"], reverse=True)
     DATA_FILE.write_text(
-        json.dumps(merged, ensure_ascii=False, indent=2) + "\n", encoding="utf-8"
+        json.dumps(entries, ensure_ascii=False, indent=2) + "\n", encoding="utf-8"
     )
-    print(f"Saved {len(merged)} items ({len(items)} in feed) to {DATA_FILE}")
+    print(f"Saved {len(entries)} items to {DATA_FILE}")
     return 0
 
 
