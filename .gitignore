@@ -18,3 +18,7 @@ package-lock.json
 
 # Ignore folders related to IDEs
 .vscode/
+
+# Ignore macOS and LaTeX byproducts
+.DS_Store
+*.log
