@@ -23,5 +23,8 @@ main:
   # - title: "Talks"
   #   url: /talks/    
         
+  - title: "Reading"
+    url: /books/
+
   - title: "Miscellaneous"
     url: /misc/

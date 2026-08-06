@@ -1,0 +1,14 @@
+<div style="display: flex; gap: 14px; margin: 18px 0; align-items: flex-start;">
+  <a href="{{ include.item.link }}" style="flex: none;">
+    <img src="{{ include.item.cover }}" alt="{{ include.item.name }}" referrerpolicy="no-referrer"
+         style="width: 70px; border-radius: 4px; box-shadow: 0 1px 4px rgba(0,0,0,0.25);">
+  </a>
+  <div>
+    <a href="{{ include.item.link }}"><strong>{{ include.item.name }}</strong></a>
+    {% if include.item.stars %}<span style="color: #f5a623; margin-left: 6px;">{% for i in (1..include.item.stars) %}★{% endfor %}</span>{% endif %}
+    <span style="color: #888; font-size: 0.85em; margin-left: 6px;">{{ include.item.date }}</span>
+    {% if include.item.comment != "" %}
+    <div style="font-size: 0.92em; margin-top: 4px;">{{ include.item.comment | newline_to_br }}</div>
+    {% endif %}
+  </div>
+</div>
