@@ -1,8 +1,10 @@
 <div style="display: flex; gap: 14px; margin: 18px 0; align-items: flex-start;">
+  {% if include.item.cover != "" %}
   <a href="{{ include.item.link }}" style="flex: none;">
-    <img src="{{ include.item.cover }}" alt="{{ include.item.name }}" referrerpolicy="no-referrer"
+    <img src="{{ include.item.cover }}" alt="{{ include.item.name }}"
          style="width: 70px; border-radius: 4px; box-shadow: 0 1px 4px rgba(0,0,0,0.25);">
   </a>
+  {% endif %}
   <div>
     <a href="{{ include.item.link }}"><strong>{{ include.item.name }}</strong></a>
     {% if include.item.author and include.item.author != "" %}<span style="color: #888; font-size: 0.85em; margin-left: 6px;">{{ include.item.author }}</span>{% endif %}

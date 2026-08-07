@@ -10,6 +10,7 @@ Run from the repo root: python3 scripts/sync_douban.py
 """
 
 import json
+import re
 import sys
 import time
 import urllib.parse
@@ -18,7 +19,9 @@ from pathlib import Path
 
 DOUBAN_USER_ID = "191702958"
 API_BASE = f"https://m.douban.com/rexxar/api/v2/user/{DOUBAN_USER_ID}/interests"
-DATA_FILE = Path(__file__).resolve().parent.parent / "_data" / "douban.json"
+REPO_ROOT = Path(__file__).resolve().parent.parent
+DATA_FILE = REPO_ROOT / "_data" / "douban.json"
+COVER_DIR = REPO_ROOT / "images" / "douban"
 
 PAGE_SIZE = 50
 MAX_MOVIES = 100  # keep the movie list bounded; books are always fetched in full
@@ -62,6 +65,38 @@ def fetch_all(subject_type, status, cap=None):
     return interests
 
 
+def localize_cover(remote_url, category, link):
+    """Download the cover into images/douban/ and return its local path.
+
+    Douban's image CDN rejects requests without a douban.com referer, so
+    covers cannot be hotlinked from the site and must be self-hosted. On
+    download failure, returns "" so templates can skip the image.
+    """
+    subject_id_match = re.search(r"/subject/(\d+)/", link)
+    if not remote_url or not subject_id_match:
+        return ""
+    extension = Path(urllib.parse.urlparse(remote_url).path).suffix or ".jpg"
+    filename = f"{category}-{subject_id_match.group(1)}{extension}"
+    local_file = COVER_DIR / filename
+    local_path = f"/images/douban/{filename}"
+    if local_file.exists():
+        return local_path
+    request = urllib.request.Request(
+        remote_url,
+        headers={"User-Agent": HEADERS["User-Agent"], "Referer": "https://m.douban.com/"},
+    )
+    try:
+        with urllib.request.urlopen(request, timeout=30) as response:
+            data = response.read()
+    except Exception as error:  # noqa: BLE001 - a missing cover should not fail the sync
+        print(f"Cover download failed for {filename}: {error}")
+        return ""
+    COVER_DIR.mkdir(parents=True, exist_ok=True)
+    local_file.write_bytes(data)
+    time.sleep(0.2)
+    return local_path
+
+
 def to_entry(interest, category, status_key):
     subject = interest["subject"]
     rating = interest.get("rating") or {}
@@ -75,7 +110,11 @@ def to_entry(interest, category, status_key):
         "status": status_key,
         "stars": rating.get("star_count") or None,
         "comment": (interest.get("comment") or "").strip(),
-        "cover": (subject.get("pic") or {}).get("normal", ""),
+        "cover": localize_cover(
+            (subject.get("pic") or {}).get("normal", ""),
+            category,
+            subject.get("url", ""),
+        ),
         "date": (interest.get("create_time") or "")[:10],
     }
 
