@@ -1,5 +1,17 @@
 [
   {
+    "guid": "4900428039",
+    "name": "瓦尔登湖",
+    "author": "[美]亨利·戴维·梭罗",
+    "link": "https://book.douban.com/subject/3815126/",
+    "category": "book",
+    "status": "read",
+    "stars": 3,
+    "comment": "初读挑些自己喜欢的东西吸收",
+    "cover": "/images/douban/book-3815126.jpg",
+    "date": "2026-08-16"
+  },
+  {
     "guid": "4900427844",
     "name": "五只小猪",
     "author": "[英] 阿加莎·克里斯蒂",
@@ -10,18 +22,6 @@
     "comment": "从犯罪心理学的角度揭示人性，和看过的许多推理小说很不一样。",
     "cover": "/images/douban/book-25986273.jpg",
     "date": "2026-08-06"
-  },
-  {
-    "guid": "4900428039",
-    "name": "瓦尔登湖",
-    "author": "[美]亨利·戴维·梭罗",
-    "link": "https://book.douban.com/subject/3815126/",
-    "category": "book",
-    "status": "reading",
-    "stars": 4,
-    "comment": "初读挑些自己喜欢的东西吸收",
-    "cover": "/images/douban/book-3815126.jpg",
-    "date": "2026-08-05"
   },
   {
     "guid": "4908649165",
