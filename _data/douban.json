@@ -1,5 +1,17 @@
 [
   {
+    "guid": "4933241058",
+    "name": "春雪",
+    "author": "[日] 三岛由纪夫",
+    "link": "https://book.douban.com/subject/26897254/",
+    "category": "book",
+    "status": "reading",
+    "stars": 4,
+    "comment": "扑面而来的少年心事",
+    "cover": "/images/douban/book-26897254.jpg",
+    "date": "2026-08-30"
+  },
+  {
     "guid": "4814505898",
     "name": "罪与罚",
     "author": "[俄] 陀思妥耶夫斯基",
