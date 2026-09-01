@@ -1,5 +1,29 @@
 [
   {
+    "guid": "4738101094",
+    "name": "穷查理宝典",
+    "author": "Charlie T. Munger, Peter D. Kaufman",
+    "link": "https://book.douban.com/subject/26831789/",
+    "category": "book",
+    "status": "reading",
+    "stars": 4,
+    "comment": "",
+    "cover": "/images/douban/book-26831789.jpg",
+    "date": "2026-09-01"
+  },
+  {
+    "guid": "4934946500",
+    "name": "不道德教育讲座",
+    "author": "[日]三岛由纪夫",
+    "link": "https://book.douban.com/subject/36379852/",
+    "category": "book",
+    "status": "want_to_read",
+    "stars": null,
+    "comment": "",
+    "cover": "/images/douban/book-36379852.jpg",
+    "date": "2026-09-01"
+  },
+  {
     "guid": "4933241058",
     "name": "春雪",
     "author": "[日] 三岛由纪夫",
@@ -754,18 +778,6 @@
     "comment": "",
     "cover": "/images/douban/book-1084336.jpg",
     "date": "2026-01-09"
-  },
-  {
-    "guid": "4738101094",
-    "name": "穷查理宝典",
-    "author": "Charlie T. Munger, Peter D. Kaufman",
-    "link": "https://book.douban.com/subject/26831789/",
-    "category": "book",
-    "status": "want_to_read",
-    "stars": null,
-    "comment": "",
-    "cover": "/images/douban/book-26831789.jpg",
-    "date": "2026-01-07"
   },
   {
     "guid": "4732942719",
