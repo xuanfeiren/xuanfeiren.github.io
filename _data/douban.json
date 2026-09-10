@@ -1,5 +1,41 @@
 [
   {
+    "guid": "4941131843",
+    "name": "沃顿商学院最受欢迎的成功课",
+    "author": "[美] 亚当·格兰特",
+    "link": "https://book.douban.com/subject/26309534/",
+    "category": "book",
+    "status": "want_to_read",
+    "stars": null,
+    "comment": "",
+    "cover": "/images/douban/book-26309534.jpg",
+    "date": "2026-09-10"
+  },
+  {
+    "guid": "4941009990",
+    "name": "沙丘",
+    "author": "[美] 弗兰克·赫伯特",
+    "link": "https://book.douban.com/subject/36497590/",
+    "category": "book",
+    "status": "read",
+    "stars": null,
+    "comment": "",
+    "cover": "/images/douban/book-36497590.jpg",
+    "date": "2026-09-09"
+  },
+  {
+    "guid": "4941009612",
+    "name": "沙丘2",
+    "author": "[美] 弗兰克·赫伯特",
+    "link": "https://book.douban.com/subject/27098887/",
+    "category": "book",
+    "status": "read",
+    "stars": null,
+    "comment": "",
+    "cover": "/images/douban/book-27098887.jpg",
+    "date": "2026-09-09"
+  },
+  {
     "guid": "4738101094",
     "name": "穷查理宝典",
     "author": "Charlie T. Munger, Peter D. Kaufman",
