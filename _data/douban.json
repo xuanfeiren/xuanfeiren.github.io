@@ -1,5 +1,41 @@
 [
   {
+    "guid": "4933241058",
+    "name": "春雪",
+    "author": "[日] 三岛由纪夫",
+    "link": "https://book.douban.com/subject/26897254/",
+    "category": "book",
+    "status": "read",
+    "stars": 5,
+    "comment": "翻开时是一段段扑面而来的少年心事，合上时想不到更适合用“缠绵悱恻、炽热浓郁”来形容的感情。通篇没有许多人物，却在几个名字之间产生了如此跌宕的情节。如果注定不能在生前得其所愿，何必再在其他无意义的事情上浪费时间？《春雪》的结局是这样极端的，和《雪国》描绘的“一切都是徒劳的”的物哀情结大不一样。",
+    "cover": "/images/douban/book-26897254.jpg",
+    "date": "2026-09-12"
+  },
+  {
+    "guid": "4942468647",
+    "name": "金阁寺",
+    "author": "[日] 三岛由纪夫",
+    "link": "https://book.douban.com/subject/35324326/",
+    "category": "book",
+    "status": "want_to_read",
+    "stars": null,
+    "comment": "",
+    "cover": "/images/douban/book-35324326.jpg",
+    "date": "2026-09-12"
+  },
+  {
+    "guid": "4942468456",
+    "name": "奔马",
+    "author": "[日] 三岛由纪夫",
+    "link": "https://book.douban.com/subject/26919599/",
+    "category": "book",
+    "status": "want_to_read",
+    "stars": null,
+    "comment": "",
+    "cover": "/images/douban/book-26919599.jpg",
+    "date": "2026-09-12"
+  },
+  {
     "guid": "4941131843",
     "name": "沃顿商学院最受欢迎的成功课",
     "author": "[美] 亚当·格兰特",
@@ -58,18 +94,6 @@
     "comment": "",
     "cover": "/images/douban/book-36379852.jpg",
     "date": "2026-09-01"
-  },
-  {
-    "guid": "4933241058",
-    "name": "春雪",
-    "author": "[日] 三岛由纪夫",
-    "link": "https://book.douban.com/subject/26897254/",
-    "category": "book",
-    "status": "reading",
-    "stars": 4,
-    "comment": "扑面而来的少年心事",
-    "cover": "/images/douban/book-26897254.jpg",
-    "date": "2026-08-30"
   },
   {
     "guid": "4814505898",
