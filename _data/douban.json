@@ -1,5 +1,17 @@
 [
   {
+    "guid": "4874513858",
+    "name": "我们为什么要睡觉？",
+    "author": "[英] 马修·沃克",
+    "link": "https://book.douban.com/subject/35332778/",
+    "category": "book",
+    "status": "reading",
+    "stars": 4,
+    "comment": "喝咖啡是竭泽而渔 能不喝就先别喝了 不过我不能…",
+    "cover": "/images/douban/book-35332778.jpg",
+    "date": "2026-09-14"
+  },
+  {
     "guid": "4933241058",
     "name": "春雪",
     "author": "[日] 三岛由纪夫",
@@ -214,18 +226,6 @@
     "comment": "前半部分劲太大了，看一会缓一会。",
     "cover": "/images/douban/book-26362836.jpg",
     "date": "2026-07-01"
-  },
-  {
-    "guid": "4874513858",
-    "name": "我们为什么要睡觉？",
-    "author": "[英] 马修·沃克",
-    "link": "https://book.douban.com/subject/35332778/",
-    "category": "book",
-    "status": "want_to_read",
-    "stars": null,
-    "comment": "",
-    "cover": "/images/douban/book-35332778.jpg",
-    "date": "2026-06-26"
   },
   {
     "guid": "4727055343",
