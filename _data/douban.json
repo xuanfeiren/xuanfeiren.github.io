@@ -1,5 +1,17 @@
 [
   {
+    "guid": "4948721638",
+    "name": "思考，快与慢",
+    "author": "[美] 丹尼尔·卡尼曼",
+    "link": "https://book.douban.com/subject/37270984/",
+    "category": "book",
+    "status": "want_to_read",
+    "stars": null,
+    "comment": "因为TypeSafe AI jev的出现愿意去读一下的书，和之前粗读的一点感受完全不一样，非常有趣",
+    "cover": "/images/douban/book-37270984.jpg",
+    "date": "2026-09-21"
+  },
+  {
     "guid": "4874513858",
     "name": "我们为什么要睡觉？",
     "author": "[英] 马修·沃克",
