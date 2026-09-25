@@ -1,5 +1,17 @@
 [
   {
+    "guid": "4942468647",
+    "name": "金阁寺",
+    "author": "[日] 三岛由纪夫",
+    "link": "https://book.douban.com/subject/35324326/",
+    "category": "book",
+    "status": "reading",
+    "stars": 3,
+    "comment": "金阁是美的，可这样的美是活着的人应该追求的吗？极致的生和极致的死都是什么…不太有力气读下去这样的文学了",
+    "cover": "/images/douban/book-35324326.jpg",
+    "date": "2026-09-24"
+  },
+  {
     "guid": "4948721638",
     "name": "思考，快与慢",
     "author": "[美] 丹尼尔·卡尼曼",
@@ -33,18 +45,6 @@
     "stars": 5,
     "comment": "翻开时是一段段扑面而来的少年心事，合上时想不到更适合用“缠绵悱恻、炽热浓郁”来形容的感情。通篇没有许多人物，却在几个名字之间产生了如此跌宕的情节。如果注定不能在生前得其所愿，何必再在其他无意义的事情上浪费时间？《春雪》的结局是这样极端的，和《雪国》描绘的“一切都是徒劳的”的物哀情结大不一样。",
     "cover": "/images/douban/book-26897254.jpg",
-    "date": "2026-09-12"
-  },
-  {
-    "guid": "4942468647",
-    "name": "金阁寺",
-    "author": "[日] 三岛由纪夫",
-    "link": "https://book.douban.com/subject/35324326/",
-    "category": "book",
-    "status": "want_to_read",
-    "stars": null,
-    "comment": "",
-    "cover": "/images/douban/book-35324326.jpg",
     "date": "2026-09-12"
   },
   {
