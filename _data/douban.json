@@ -1,5 +1,17 @@
 [
   {
+    "guid": "4959398019",
+    "name": "精英的傲慢",
+    "author": "[美]迈克尔·桑德尔",
+    "link": "https://book.douban.com/subject/35586814/",
+    "category": "book",
+    "status": "reading",
+    "stars": 3,
+    "comment": "越相信“努力就会成功”，便越要受到“人要为自己的不幸负责”的伤害。除去优绩，人要追求什么？我只想到，对世界的好奇心、热爱生活。",
+    "cover": "/images/douban/book-35586814.jpg",
+    "date": "2026-11-20"
+  },
+  {
     "guid": "4991807023",
     "name": "堕落",
     "author": "(法)阿尔贝·加缪",
@@ -81,18 +93,6 @@
     "stars": 4,
     "comment": "喝咖啡是竭泽而渔 能不喝就先别喝了 不过我不能…\n\n渐渐地戒掉咖啡，度过戒断期以后似乎也没什么影响。不喝咖啡时的精力也变好了。困了就去走一走，吹吹风，晒晒太阳。",
     "cover": "/images/douban/book-35332778.jpg",
-    "date": "2026-10-06"
-  },
-  {
-    "guid": "4959398019",
-    "name": "精英的傲慢",
-    "author": "[美]迈克尔·桑德尔",
-    "link": "https://book.douban.com/subject/35586814/",
-    "category": "book",
-    "status": "want_to_read",
-    "stars": null,
-    "comment": "",
-    "cover": "/images/douban/book-35586814.jpg",
     "date": "2026-10-06"
   },
   {
